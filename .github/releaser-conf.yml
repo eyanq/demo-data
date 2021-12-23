@@ -1,0 +1,42 @@
+name-template: 'v$RESOLVED_VERSION 🌈'
+tag-template: 'v$RESOLVED_VERSION'
+template: |
+  # Changelog
+  $CHANGES
+
+  See details of [all code changes](https://github.com/eyarng/demo-data/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION) since previous release
+categories:
+  - title: '🚀 Features'
+    labels:
+      - 'feature'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'fix'
+  - title: '💪 Enhancement'
+    labels:
+      - 'ci'
+      - 'refactor'
+      - 'style'
+  - title: '📝 Documentation'
+    labels:
+      - 'docs'
+      - 'test'
+      - 'chore'
+  - title: '🏎 Performance'
+    label:
+      - 'performance'
+      - 'infrastructure'
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+version-resolver:
+  major:
+    labels:
+      - 'type: breaking'
+  minor:
+    labels:
+      - 'type: enhancement'
+  patch:
+    labels:
+      - 'type: bug'
+      - 'type: maintenance'
+      - 'type: documentation'
+  default: patch
