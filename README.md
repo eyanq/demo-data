@@ -10,9 +10,9 @@ This repo hosts the [Tickit demo database](https://docs.aws.amazon.com/redshift/
 | Column name 	| Data type   	| Description                                                                                                                      	|
 |-------------	|-------------	|----------------------------------------------------------------------------------------------------------------------------------	|
 | CATID       	| SMALLINT    	| Primary key, a unique ID value for each row. Each row represents a specific type of event for which tickets are bought and sold. 	|
-| CATGROUP    	| VARCHAR(10) 	| Descriptive name for a group of events, such as Shows and Sports.                                                                	|
-| CATNAME     	| VARCHAR(10) 	| Short descriptive name for a type of event within a group, such as Opera and Musicals.                                           	|
-| CATDESC     	| VARCHAR(30) 	| Longer descriptive name for the type of event, such as Musical theatre.                                                          	|
+| CATGROUP    	| VARCHAR(10) 	| Descriptive name for a group of events, such as `Shows` and `Sports`.                                                            	|
+| CATNAME     	| VARCHAR(10) 	| Short descriptive name for a type of event within a group, such as `Opera` and `Musicals`.                                       	|
+| CATDESC     	| VARCHAR(30) 	| Longer descriptive name for the type of event, such as `Musical theatre`.                                                        	|
 
 
 ### Event
@@ -22,18 +22,18 @@ This repo hosts the [Tickit demo database](https://docs.aws.amazon.com/redshift/
 | VENUEID     	| SMALLINT     	| Foreign-key reference to the VENUE table.                                                                                                  	|
 | CATID       	| SMALLINT     	| Foreign-key reference to the CATEGORY table.                                                                                               	|
 | DATEID      	| SMALLINT     	| Foreign-key reference to the DATE table.                                                                                                   	|
-| EVENTNAME   	| VARCHAR(200) 	| Name of the event, such as Hamlet or La Traviata.                                                                                          	|
-| STARTTIME   	| TIMESTAMP    	| Full date and start time for the event, such as 2008-10-10 19:30:00.                                                                       	|
+| EVENTNAME   	| VARCHAR(200) 	| Name of the event, such as `Hamlet` or `La Traviata`.                                                                                      	|
+| STARTTIME   	| TIMESTAMP    	| Full date and start time for the event, such as `2008-10-10 19:30:00`.                                                                     	|
 
 
 ### Venue
 | Column name 	| Data type    	| Description                                                                                                                                            	|
 |------------:	|--------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | VENUEID     	| SMALLINT     	| Primary key, a unique ID value for each row. Each row represents a specific venue where events take place.                                             	|
-| VENUENAME   	| VARCHAR(100) 	| Exact name of the venue, such as Cleveland Browns Stadium.                                                                                             	|
-| VENUECITY   	| VARCHAR(30)  	| City name, such as Cleveland.                                                                                                                          	|
-| VENUESTATE  	| CHAR(2)      	| Two-letter state or province abbreviation (United States and Canada), such as OH.                                                                      	|
-| VENUESEATS  	| INTEGER      	| Maximum number of seats available at the venue, if known, such as 73200. For demonstration purposes, this column contains some null values and zeroes. 	|
+| VENUENAME   	| VARCHAR(100) 	| Exact name of the venue, such as `Cleveland Browns Stadium`.                                                                                           	|
+| VENUECITY   	| VARCHAR(30)  	| City name, such as `Cleveland`.                                                                                                                        	|
+| VENUESTATE  	| CHAR(2)      	| Two-letter state or province abbreviation (United States and Canada), such as `OH`.                                                                    	|
+| VENUESEATS  	| INTEGER      	| Maximum number of seats available at the venue, if known, such as `73200`. For demonstration purposes, this column contains some null values and zeroes. 	|
 
 
 
@@ -68,12 +68,12 @@ This repo hosts the [Tickit demo database](https://docs.aws.amazon.com/redshift/
 | Column name 	| Data type 	| Description                                                                                  	|
 |------------:	|-----------	|----------------------------------------------------------------------------------------------	|
 | DATEID      	| SMALLINT  	| Primary key, a unique ID value for each row. Each row represents a day in the calendar year. 	|
-| CALDATE     	| DATE      	| Calendar date, such as 2008-06-24.                                                           	|
-| DAY         	| CHAR(3)   	| Day of week (short form), such as SA.                                                        	|
-| WEEK        	| SMALLINT  	| Week number, such as 26.                                                                     	|
-| MONTH       	| CHAR(5)   	| Month name (short form), such as JUN.                                                        	|
-| QTR         	| CHAR(5)   	| Quarter number (1 through 4).                                                                	|
-| YEAR        	| SMALLINT  	| Four-digit year (2008).                                                                      	|
+| CALDATE     	| DATE      	| Calendar date, such as `2008-06-24`.                                                         	|
+| DAY         	| CHAR(3)   	| Day of week (short form), such as `SA`.                                                      	|
+| WEEK        	| SMALLINT  	| Week number, such as `26`.                                                                   	|
+| MONTH       	| CHAR(5)   	| Month name (short form), such as `JUN`.                                                      	|
+| QTR         	| CHAR(5)   	| Quarter number (`1` through `4`).                                                            	|
+| YEAR        	| SMALLINT  	| Four-digit year (`2008`).                                                                    	|
 | HOLIDAY     	| BOOLEAN   	| Flag that denotes whether the day is a public holiday (U.S.).                                	|
 
 
@@ -81,23 +81,23 @@ This repo hosts the [Tickit demo database](https://docs.aws.amazon.com/redshift/
 |     Column name 	| Data type    	| Description                                                                                                                                                             	|
 |----------------:	|--------------	|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | USERID          	| INTEGER      	| Primary key, a unique ID value for each row. Each row represents a registered user (a buyer or seller or both) who has listed or bought tickets for at least one event. 	|
-| USERNAME        	| CHAR(8)      	| An 8-character alphanumeric username, such as PGL08LJI.                                                                                                                 	|
-| FIRSTNAME       	| VARCHAR(30)  	| The user's first name, such as Victor.                                                                                                                                  	|
-| LASTNAME        	| VARCHAR(30)  	| The user's last name, such as Hernandez.                                                                                                                                	|
-| CITY            	| VARCHAR(30)  	| The user's home city, such as Naperville.                                                                                                                               	|
-| STATE           	| CHAR(2)      	| The user's home state, such as GA.                                                                                                                                      	|
-| EMAIL           	| VARCHAR(100) 	| The user's email address; this column contains random Latin values, such as turpis@accumsanlaoreet.org.                                                                 	|
-| PHONE           	| CHAR(14)     	| The user's 14-character phone number, such as (818) 765-4255.                                                                                                           	|
-| LIKESPORTS      	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with true and false values.                                                                	|
-| LIKETHEATRE     	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with true and false values.                                                                	|
-| LIKECONCERTS    	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with true and false values.                                                                	|
-| LIKEJAZZ        	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with true and false values.                                                                	|
-| LIKECLASSICAL   	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with true and false values.                                                                	|
-| LIKEOPERA       	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with true and false values.                                                                	|
-| LIKEROCK        	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with true and false values.                                                                	|
-| LIKEVEGAS       	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with true and false values.                                                                	|
-| LIKEBROADWAY    	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with true and false values.                                                                	|
-| LIKEMUSICALS    	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with true and false values.                                                                	|
+| USERNAME        	| CHAR(8)      	| An 8-character alphanumeric username, such as `PGL08LJI`.                                                                                                               	|
+| FIRSTNAME       	| VARCHAR(30)  	| The user's first name, such as `Victor`.                                                                                                                                	|
+| LASTNAME        	| VARCHAR(30)  	| The user's last name, such as `Hernandez`.                                                                                                                              	|
+| CITY            	| VARCHAR(30)  	| The user's home city, such as `Naperville`.                                                                                                                             	|
+| STATE           	| CHAR(2)      	| The user's home state, such as `GA`.                                                                                                                                    	|
+| EMAIL           	| VARCHAR(100) 	| The user's email address; this column contains random Latin values, such as `turpis@accumsanlaoreet.org`.                                                               	|
+| PHONE           	| CHAR(14)     	| The user's 14-character phone number, such as `(818) 765-4255`.                                                                                                         	|
+| LIKESPORTS      	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with `true` and `false` values.                                                            	|
+| LIKETHEATRE     	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with `true` and `false` values.                                                            	|
+| LIKECONCERTS    	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with `true` and `false` values.                                                            	|
+| LIKEJAZZ        	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with `true` and `false` values.                                                            	|
+| LIKECLASSICAL   	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with `true` and `false` values.                                                            	|
+| LIKEOPERA       	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with `true` and `false` values.                                                            	|
+| LIKEROCK        	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with `true` and `false` values.                                                            	|
+| LIKEVEGAS       	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with `true` and `false` values.                                                            	|
+| LIKEBROADWAY    	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with `true` and `false` values.                                                            	|
+| LIKEMUSICALS    	| BOOLEAN      	| A series of 10 different columns that identify the user's likes and dislikes with `true` and `false` values.                                                            	|
 
 
 
